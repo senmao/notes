@@ -1,0 +1,51 @@
+#1.  almost all command have a option "--help" and "--version"
+
+#2. 分屏显示"more" or "less" 
+	example: "ls -a | less"
+
+#3.进程管理, "ps" and "kill"
+
+#4. 环境变量， "env"显示所有环境变量，"echo $JAVA_HOME"显示单个环境变量
+		export PATH="$PATH:/opt/au1200_rm/build_tools/bin" 设置变量
+		unset JAVA_HOME 清除变量	
+#5. 清屏 "clear" or "reset"
+
+#6. 程序运行时间显示 "time" 
+
+#7. 查看某个资源谁在使用 "fuser" 
+
+#8. 软件包管理 apt-get  apt-cache  dpkg
+	apt-cache search package 搜索包
+	apt-cache show package 获取包的相关信息，如说明、大小、版本等
+	sudo apt-get install package 安装包
+	sudo apt-get install package - - reinstall 重新安装包
+	sudo apt-get -f install 修复安装"-f = ——fix-missing"
+	sudo apt-get remove package 删除包
+	sudo apt-get remove package - - purge 删除包，包括删除配置文件等
+	sudo apt-get update 更新源
+	sudo apt-get upgrade 更新已安装的包
+	sudo apt-get dist-upgrade 升级系统
+	sudo apt-get dselect-upgrade 使用 dselect 升级
+	apt-cache depends package 了解使用依赖
+	apt-cache rdepends package 是查看该包被哪些包依赖
+	sudo apt-get build-dep package 安装相关的编译环境
+	apt-get source package 下载该包的源代码
+	sudo apt-get clean && sudo apt-get autoclean 清理无用的包
+	sudo apt-get check 检查是否有损坏的依赖
+
+#9. Ctrl+1 Ctrl+2 显示文件夹不同的View
+
+#10. ldd 常看运行程序或动态库的依赖
+#11. ldconfig 更新动态库的cache， /etc/ld.so.conf 包含动态库搜寻的目录
+#12. ln 创建链接
+#13. bc 计算器
+#14. expr 整数简单计算
+#15. cat 
+#16. sort 排序
+#17. tr	字符转换
+#18. network manager state and device utility
+#19. dpkg -L packagename 查看包安装位置
+
+
+
+

@@ -1,0 +1,301 @@
+------------------------------------------------------------------
+VI pattern
+------------------------------------------------------------------
+	(command) (number) (text object)
+
+------------------------------------------------------------------
++ 常用
+------------------------------------------------------------------
+#	e!		取消所有更改
+#	ZZ		=wq
+#	w!		save and overwritten
+#	w newfile	save to a newfile
+# 	q!		quit and not save
+# 	qa, qwa, qa!  	for all windows
+# 	1, Ctrl+G	show the full path of the current buffer
+------------------------------------------------------------------
++ 光标移动
+------------------------------------------------------------------
+#	1G		文件开始
+#	50G		文件第50行
+#	G		文件结尾
+#	w		向前一个字, at the begin of the word
+#	b		向后一个字, at the begin of the word
+#	e       move the end of the word
+#	0		行首
+#	$		行尾
+#	H		屏幕顶部
+#	M		屏幕中间
+#	L		屏幕底部
+#	^		移动光标到行的第一个部分空白字
+#	（		前一句
+#	）		后一句
+#	{		前一段
+#	}		后一段
+# 	"		Return to the line where the cursor was before the latest jump 
+#	``		Return to the cursor position before the latest jump (undo the jump)
+
+------------------------------------------------------------------
++ 编辑
+------------------------------------------------------------------
+#	i 		在当前位置生前插入
+#	I 		在当前行首插入
+#	a 		在当前位置后插入
+#	A		在当前行尾插入
+#	o		在当前行之后插入一行
+#	O		在当前行之前插入一行
+#	c 		更改，可以配合（w(e), b, 0, $）
+#	cc		更改一整行
+# 	C		=c$ 从光标开始到行尾
+#	r（letter）	更改一个字母，并保持在命令模式
+#	(number)s	修改从光标开始几个字符，并进入插入模式		
+#	S		修改一整行，并进入插入模式
+
+------------------------------------------------------------------
++ 撤销与恢复
+------------------------------------------------------------------
+#	u        	撤销最后执行的命令
+#	U        	修正之前对该行的操作
+#	Ctrl+R   	Redo
+
+------------------------------------------------------------------
++ 复制粘贴
+------------------------------------------------------------------
+#       基本复制粘贴	先用v，C-v，V选择一块，然后用y复制，再用p粘贴。
+#	yy     		拖拽当前整行（与删除共享缓冲区）
+#	nyy    		拖拽当前行开始的n行内容
+#	y$    		拖拽光标位置到行末
+#       y3j		复制从当前行开始3行
+# 	Shift+Insert	从系统粘贴板粘贴
+#	p		粘贴剪贴板
+
+------------------------------------------------------------------
++ 删除
+------------------------------------------------------------------
+#	dd		删除当前行，并把删除的行存到剪贴板里
+# 	Ndd		删除光标所在行以下的N行
+# 	1,10d		删除1-10行
+#	1,$d		删除所有内容
+#	x		删当前光标所在的一个字符
+#	dw	      	删除光标之后的单词剩余部分
+#	ndw 		删除以当前字符开始的n个字
+#	d$(或D)       	删除光标之后的该行剩余部分
+#   ctrl+w   delete the latest word in the insert mode
+
+------------------------------------------------------------------
++ 更多编辑命令
+------------------------------------------------------------------
+#	xp		交换光标与其之后的一个字母
+#	J		合并两行
+# 	ddp		交换当前行与下一行
+# 	ddkp		交换当前行与上一行
+
+------------------------------------------------------------------
++ 列编辑
+------------------------------------------------------------------
+ctrl-v 进入纵向编辑模式
+r 进入修改模式, I 进入行首插入模式,A 进入行尾插入模式
+输入编辑内容
+ESC 退出纵向编辑模式, 并回到命令模式
+
+------------------------------------------------------------------
++ 标记
+------------------------------------------------------------------
+#	mx		标记当前位置
+#	'x		回到标记行的行首
+#	`x		回到标记字符位置
+
+------------------------------------------------------------------
++ 搜索
+------------------------------------------------------------------
+#	/pattern	从光标处向上搜索
+#	?pattern	从光标处向下搜索
+#	n/N		n:继续同方向搜/N:继续反方向搜 可用正则表达式
+
+
+------------------------------------------------------------------
++ 命令操作 ：command
+------------------------------------------------------------------
+：b(n)				切换缓冲区
+: b filename			切换文件
+: g
+: s/old/new/g			本行替换
+: s/old/new/g**			全文替换
+：10,20s/old/new		替换10到20行之间
+：g/pattern/s/old/new/g		全文模式替换
+：!command			执行shell的command不退出vim
+：r!date			读取date的结果到vim
+
+------------------------------------------------------------------
++ 多窗口操作
+------------------------------------------------------------------
+# Ctrl+w, s 			=:sp or=:split
+# Ctrl+w, v			=vsp or=:vsplit
+# Ctrl+w, h[j,k,l]		窗口间移动
+# Ctrl+w, q			关闭当前窗口
+# sp[vsp] newfile		在新窗口中打开文件
+# [size], Ctrl+w, < or >		横向调整窗口大小
+# [size], Ctrl+w, - or +		竖向调整窗口大小		
+
+reisze [+/-]50
+vertical resize [+/-]50
+
+
+# move the window
+Ctrl W + L - Move the current window to the "far right"
+Ctrl W + H - Move the current window to the "far left"
+Ctrl W + J - Move the current window to the "very bottom"
+Ctrl W + K - Move the current window to the "very top"
+
+
+# 在多窗口打开多个文件
+  vim -o file1.txt file2.txt file3.txt
+	-o[N]	Open N windows (default: one for each file)
+	-O[N]   Like -o but split vertically
+
+------------------------------------------------------------------
++ Buffers
+------------------------------------------------------------------
+:buffers,ls,files[!]		list all buffers, append ! for all buffers
+:b,bu,buf,buffer name/nubmer	switch to buffername
+:b#				switch to previous buffer
+:bd				delete buffer
+:bw				write and delete buffer
+
+------------------------------------------------------------------
++ Tabs
+------------------------------------------------------------------
+:tabe[dit] filename 	Open filename in a new tab
+ctrl-W T 		Move current split window into its own tab
+:q 			Close window, closing tab if it contains a single window
+:tabc[lose] 		Close the current tab page and all its windows
+:tabo[nly] 		Close all tabs apart from the current one
+gt 			Move to next tab
+gT 			Move to previous tab
+#gt 			Move to tab number #
+:tabmove 		Move current tab to the end
+:tabmove 0 		Move current tab to the beginning
+:tabmove 1 		Move current tab to become the 2nd tab
+
+------------------------------------------------------------------
++ 屏幕移动
+------------------------------------------------------------------
+zz 			- move current line to the middle of the screen
+zt 			- move current line to the top of the screen
+zb 			- move current line to the bottom of the screen
+
+Ctrl-e 			Moves screen up one line
+Ctrl-y			Moves screen down one line
+Ctrl-u			Moves screen up ½ page
+Ctrl-d			Moves screen down ½ page
+Ctrl-b			Moves screen up one page
+Ctrl-f 			Moves screen down one page
+
+
+------------------------------------------------------------------
++ 补全
+------------------------------------------------------------------
+CTRL-n		补全是向下查找以进行补全
+CTRL-p		补全是向上查找以进行补全
+整行补全                        CTRL-X CTRL-L
+根据当前文件里关键字补全        CTRL-X CTRL-N
+根据字典补全                    CTRL-X CTRL-K
+根据同义词字典补全              CTRL-X CTRL-T
+根据头文件内关键字补全          CTRL-X CTRL-I
+根据标签补全                    CTRL-X CTRL-]
+补全文件名                      CTRL-X CTRL-F
+补全宏定义                      CTRL-X CTRL-D
+补全vim命令                     CTRL-X CTRL-V
+用户自定义补全方式              CTRL-X CTRL-U
+拼写建议                        CTRL-X CTRL-S 
+
+
+------------------------------------------------------------------
++ QuickFix
+------------------------------------------------------------------
+:cc                显示详细错误信息 ( :help :cc )
+:cp                跳到上一个错误 ( :help :cp )
+:cn                跳到下一个错误 ( :help :cn )
+:cl                列出所有错误 ( :help :cl )
+:cw                如果有错误列表，则打开quickfix窗口 ( :help :cw )
+:col               到前一个旧的错误列表 ( :help :col )
+:cnew              到后一个较新的错误列表 ( :help :cnew ) 
+
+
+------------------------------------------------------------------
++ CTags and Taglist
+------------------------------------------------------------------
+Ctrl-]			Jump to the tag underneath the cursor
+:ts <tag> <RET>		Search for a particular tag
+:tn			Go to the next definition for the last tag
+:tp			Go to the previous definition for the last tag
+:ts			List all of the definitions of the last tag
+Ctrl-t			Jump back up in the tag stack
+
+
+------------------------------------------------------------------
++ 显示vim信息
+------------------------------------------------------------------
+:abbreviate   - list abbreviations
+:args         - argument list
+:augroup      - augroups
+:autocmd      - list auto-commands
+:buffers      - list buffers
+:breaklist    - list current breakpoints
+:cabbrev      - list command mode abbreviations
+:changes      - changes
+:cmap         - list command mode maps
+:command      - list commands
+:compiler     - list compiler scripts
+:digraphs     - digraphs
+:file         - print filename, cursor position and status (like Ctrl-G)
+:filetype     - on/off settings for filetype detect/plugins/indent
+:function     - list user-defined functions (names and argument lists but not the full code)
+:function Foo - user-defined function Foo() (full code list)
+:highlight    - highlight groups
+:history c    - command history
+:history =    - expression history
+:history s    - search history
+:history      - your commands
+:iabbrev      - list insert mode abbreviations
+:imap         - list insert mode maps
+:intro        - the Vim splash screen, with summary version info
+:jumps        - your movements
+:language     - current language settings
+:let          - all variables
+:let FooBar   - variable FooBar
+:let g:       - global variables
+:let v:       - Vim variables
+:list         - buffer lines (many similar commands)
+:lmap         - language mappings (set by keymap or by lmap)
+:ls           - buffers
+:ls!          - buffers, including "unlisted" buffers
+:map!         - Insert and Command-line mode maps (imap, cmap)
+:map          - Normal and Visual mode maps (nmap, vmap, xmap, smap, omap)
+:map<buffer>  - buffer local Normal and Visual mode maps
+:map!<buffer> - buffer local Insert and Command-line mode maps
+:marks        - marks
+:menu         - menu items
+:messages     - message history
+:nmap         - Normal-mode mappings only
+:omap         - Operator-pending mode mappings only
+:print        - display buffer lines (useful after :g or with a range)
+:reg          - registers
+:scriptnames  - all scripts sourced so far
+:set all      - all options, including defaults
+:setglobal    - global option values
+:setlocal     - local option values
+:set          - options with non-default value
+:set termcap  - list terminal codes and terminal keys
+:smap         - Select-mode mappings only
+:spellinfo    - spellfiles used
+:syntax       - syntax items
+:syn sync     - current syntax sync mode
+:tabs         - tab pages
+:tags         - tag stack contents
+:undolist     - leaves of the undo tree
+:verbose      - show info about where a map or autocmd or function is defined
+:version      - list version and build options
+:vmap         - Visual and Select mode mappings only
+:winpos       - Vim window position (gui)
+:xmap         - visual mode maps only

@@ -1,0 +1,87 @@
+# config git repo
+    * git config --local user.name "Senamo"
+    * git config --local user.email senmao@email.com
+    * git config --global core.editor vim
+    * git config --list  (show all the settings)
+    * git config [variable_name] (check the current using value) 
+
+# get help
+    * git help <verb>
+    * git <verb> --help
+    * man git-<verb>
+
+# initializing a Repo
+    * git init
+
+# clone a Repo
+    * git clone <repo-url>
+
+# add remote
+    * git remote add <remote_name> loation_of_remote
+    * git remote rename <old_name> <new_name>
+    * git remote rm <remote_name>
+    * git remote -v   // show the remotes
+    * git push origin master (push master branche to the origin remote)
+
+# check the status
+    * git status
+    * git status -s (for short status)
+
+# ignoring files
+    * edit .gitignore
+
+# checking difference
+    * git diff <file1>/<origin/master master>
+
+# normal developing operation
+    * git add <files> (track/stage files)
+    * git commit -m "commit message"
+    * git rm <filename> 
+
+# view the log
+    * git log
+
+# undoing things
+    * git commit --amend (uncommit)
+    * git reset HEAD <filename> (unstage file)
+    * git checkout -- <filename> (unmodify the file)
+
+# git tag
+    * git tag      //show the tags
+    * git tag -a <tag_name> -m "tag info"  // create Annotated Tag
+    * git tag <tag_name>   // lightweight tag
+    * git tag -a <tag_name> 9fceb02  // tag at previous commit point
+    * git push origin <tag_name>   // push tag
+    * git tag -d <tag_name>    // delete tag locally
+    * git push origin :refs/tags/<tag_name>    // delete tag remotely, local tag should be delete first
+    * git checkout tags/<tag_name> //checkout specific tagged codes
+
+# branching
+    * git branch <branch_name> (create new branch)
+    * git branch -d <branch_name> (delete branch locally)
+    * git push origin <branch_name>  or git push origin --delete <branch_name> (push/delete branch remotely)
+
+    # merge branch_1 to branch_2
+        * git checkout <branch_1>   // checkout the branch to be merged into
+        * git merge <branch_2>      // merge branch_2 into branch_1
+        * manually solve conflicts if exists
+        * delete branch_2
+        * commit branch_1
+
+    # checkout branch from remote repository
+        * git fetch
+        * git checkout [branch_name]
+
+    * git checkout <branch_name> (switch branch)
+    * git branch (view branches locally)
+    * git branch -r (view remote branches)
+
+    # check difference between two branches
+	* git diff branch_1..branch_2
+
+
+# in case git server require password when pushing to the remote, please do as the following to enable ssh key authentication.
+ 	open (create if necessary) the file ~/.ssh/config, and add the following line:
+		IdentityFile ~/.ssh/my_key
+
+

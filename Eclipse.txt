@@ -1,0 +1,45 @@
+--------------------------------------------------
+1. 编辑
+--------------------------------------------------
+# Ctrl+Shift+A		列编辑
+# Ctrl+Shift+F		格式化代码
+# Ctrl+1		快速修复
+# Alt+up/down		交换行
+# Ctrl+D		删除当前行
+# Ctrl+S		保存当前Tab
+# Ctrl+Shift+S		保存所有Tab
+# Ctrl+W/F4		关闭当前Tab
+# Ctrl+Shift+F4		关闭所有Tab
+# Alt+Left/Right	上一个/下一个Tab
+# Ctrl+Shift+Enter	当前行之前插入空行
+# Shift+Enter		当前行之后插入空行
+# Ctrl+/		注释与反注释
+# Ctrl+Shift+X/Y	修改选中的文本全大写/小写
+# Ctrl+Z		undo
+# Ctrl+Y		redo
+# shift+Tab		tab backward
+
+--------------------------------------------------
+2. 光标移动
+--------------------------------------------------
+# Ctrl+Left/Right	向左/向右一个单词
+# Home/End		行首/行尾
+# Ctrl+L		Go to line
+
+--------------------------------------------------
+3. 调试 
+--------------------------------------------------
+# F11			Debug
+# Ctrl+F11		Run
+# F5			Step into
+# F6			Step over
+# F7			Step out
+# F8			Continue
+# Ctrl+R		Run to cursor line
+# Ctrl+Shift+B		Add breakpoint
+
+
+
+
+
+
