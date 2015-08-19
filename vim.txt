@@ -67,7 +67,8 @@ VI pattern
 #	y$    		拖拽光标位置到行末
 #       y3j		复制从当前行开始3行
 # 	Shift+Insert	从系统粘贴板粘贴
-#	p		粘贴剪贴板
+#	p		paste after current line
+#       P               paste before current line
 
 ------------------------------------------------------------------
 + 删除
