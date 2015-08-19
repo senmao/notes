@@ -116,6 +116,14 @@ ESC 退出纵向编辑模式, 并回到命令模式
 :%s/old/new/g			全文替换
 ：10,20s/old/new		替换10到20行之间
 ：g/pattern/s/old/new/g		全文模式替换
+ 
+:s/foo/bar/g 	Change each 'foo' to 'bar' in the current line.
+:%s/foo/bar/g 	Change each 'foo' to 'bar' in all the lines.
+:5,12s/foo/bar/g 	Change each 'foo' to 'bar' for all lines from line 5 to line 12 (inclusive).
+:'a,'bs/foo/bar/g 	Change each 'foo' to 'bar' for all lines from mark a to mark b inclusive (see Note below).
+:.,$s/foo/bar/g 	Change each 'foo' to 'bar' for all lines from the current line (.) to the last line ($) inclusive.
+:.,+2s/foo/bar/g 	Change each 'foo' to 'bar' for the current line (.) and the two next lines (+2).
+:g/^baz/s/foo/bar/g 	Change each 'foo' to 'bar' in each line starting with 'baz'. 
  -----  
     ^ 表示一行的开头。如：/^#/ 以#开头的匹配。
     $ 表示一行的结尾。如：/}$/ 以}结尾的匹配。
@@ -123,7 +131,8 @@ ESC 退出纵向编辑模式, 并回到命令模式
     \> 表示词尾。 如 abc\> 表示以 abc 結尾的詞。
     . 表示任何单个字符。
     * 表示某个字符出现了0次或多次。
-    [ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字符
+    [ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字
+ 
 
 
 ------------------------------------------------------------------
