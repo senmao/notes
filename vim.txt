@@ -116,6 +116,8 @@ ESC 退出纵向编辑模式, 并回到命令模式
 :%s/old/new/g			全文替换
 ：10,20s/old/new		替换10到20行之间
 ：g/pattern/s/old/new/g		全文模式替换
+:s/my/[&]/g                     &来当做被匹配的变量，然后可以在基本左右加点东西,
+				it will add replace my with [my]
  
 :s/foo/bar/g 	Change each 'foo' to 'bar' in the current line.
 :%s/foo/bar/g 	Change each 'foo' to 'bar' in all the lines.
