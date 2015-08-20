@@ -66,6 +66,7 @@ VI pattern
 #	nyy    		拖拽当前行开始的n行内容
 #	y$    		拖拽光标位置到行末
 #       y3j		复制从当前行开始3行
+#       :81,91y<enter>	yank from line81 to 91	
 # 	Shift+Insert	从系统粘贴板粘贴
 #	p		paste after current line
 #       P               paste before current line
