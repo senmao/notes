@@ -13,6 +13,7 @@ VI pattern
 # 	q!		quit and not save
 # 	qa, qwa, qa!  	for all windows
 # 	1, Ctrl+G	show the full path of the current buffer
+#       :w !diff % -    show the changes before save
 ------------------------------------------------------------------
 + 光标移动
 ------------------------------------------------------------------
