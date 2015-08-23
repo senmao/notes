@@ -110,10 +110,10 @@ fi
 # customized part
 #
 # fixed network connection problems via proxy
-export http_proxy=http://proxy.ipf.tuwien.ac.at:3128/
-export https_proxy=http://proxy.ipf.tuwien.ac.at:3128/
-export ftp_proxy=http://proxy.ipf.tuwien.ac.at:3128/
-export socks_proxy=http://proxy.ipf.tuwien.ac.at:3128/
+#export http_proxy=
+#export https_proxy=
+#export ftp_proxy=
+#export socks_proxy=
 
 # Gdal data
 export GDAL_DATA=/usr/local/share/gdal
