@@ -40,6 +40,7 @@ VI pattern
 #	``		Return to the cursor position before the latest jump (undo the jump)
 # 	fx              move cursor to first occurrence of x (searching to right)
 #       Fx              move cursor to first occurrence of x (searching to left)
+# 	%		move to the matched brace
 
 ------------------------------------------------------------------
 + 编辑
@@ -88,9 +89,11 @@ ctrl-t, ctrl-d 	Indent/un-indent in insert mode
 ------------------------------------------------------------------
 #	dd		删除当前行，并把删除的行存到剪贴板里
 # 	Ndd		删除光标所在行以下的N行
+#	D		delete from cursor to end of current line
 # 	1,10d		删除1-10行
 #	1,$d		删除所有内容
 #	x		删当前光标所在的一个字符
+#	X		delete left character of cursor
 #	dw	      	删除光标之后的单词剩余部分
 #	ndw 		删除以当前字符开始的n个字
 #	d$(或D)       	删除光标之后的该行剩余部分
