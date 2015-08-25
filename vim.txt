@@ -22,7 +22,8 @@ VI pattern
 #	G		文件结尾
 #	w		向前一个字, at the begin of the word
 #	b		向后一个字, at the begin of the word
-#	e       move the end of the word
+#	e       	move to end of next word
+#       ge		move to begin of previous word
 #	0		行首
 #	$		行尾
 #	H		屏幕顶部
