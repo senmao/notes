@@ -1,0 +1,116 @@
+
+" ================================================== 
+" SETTINGS
+" ==================================================
+
+" turn our filetype functionality
+filetype plugin indent on
+
+syntax on
+filetype on " try to detect filetypes
+
+set foldmethod=indent " fold the code block
+set foldlevel=99
+set autoindent
+
+set number " show line number
+set mouse=a " enable mouse
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+
+"au FileType python set textwidth=80 formatoptions+=t
+
+" set the path auto-complete
+set wildmenu
+set wildmode=list:longest
+" set the time out for accelerate the esc key
+set timeoutlen=1000 ttimeoutlen=10
+
+" set colorcolumn for controlling the line length
+set cc=81
+hi ColorColumn ctermbg=darkgrey
+
+
+" ================================================== 
+" MAPS
+" ==================================================
+
+" set lead key
+let mapleader = ","
+
+" map jk to ESC for fast exit insert mode
+inoremap jk <ESC>
+vnoremap jk <ESC> 
+
+" map shortcut for save
+nnoremap <leader>s :w<CR>
+" windows path to linux path
+nnoremap <leader>/ :s/\\/\//g<CR>
+
+" window splits
+" map Ctrl+<movement> to Ctrl+w,<movement>
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" resize window
+nnoremap + <C-W>+
+nnoremap - <C-W>-
+nnoremap ( <C-W><
+nnoremap ) <C-W>>
+
+" move cursor in insert mode
+"inoremap <S-h> <C-o>h
+"inoremap <S-j> <C-o>j
+"inoremap <S-k> <C-o>k
+"inoremap <S-l> <C-o>l
+"inoremap <S-w> <C-o>w
+"inoremap <S-b> <C-o>b
+"inoremap <S-e> <C-o>e
+
+" copy, cut and past with system clipboard
+vnoremap <c-y> "+y
+vnoremap <c-d> "+d
+vnoremap <c-p> "+p
+
+
+" --- leader key maps ---
+
+" add break point
+nnoremap ,b oimport pdb; pdb.set_trace()<ESC>
+
+" delete and paste, without putting deleted text in default register
+vnoremap <leader>p "_dP
+
+" python main part
+:autocmd FileType python nnoremap <leader>m oif __name__ == "__main__":<CR>
+
+" python comment and uncomment shortcut
+:autocmd FileType python vnoremap <leader>c :s/^/#/g<CR>
+:autocmd FileType python nnoremap <leader>c :s/^/#/g<CR>
+":autocmd FileType python nnoremap <leader># o# <ESC>60a=<ESC>o# <ESC>o# <ESC>60a=<ESC>ka
+:autocmd FileType python nnoremap <leader># o# <ESC>60a=<ESC>
+:autocmd FileType python vnoremap <leader>cc :s/^#//g<CR>
+:autocmd FileType python nnoremap <leader>cc :s/^#//g<CR>
+
+" remove tailing space in current line
+nnoremap <leader><space> :s/\s\+$//g<CR><ESC>
+
+
+" ================================================== 
+" EXTENSION 
+" ==================================================
+
+"  --omni complete--
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest
+
+
+" ================================================== 
+" FUNCTIONS
+" ==================================================
+
