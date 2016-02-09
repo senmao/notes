@@ -78,11 +78,6 @@ let mapleader = ","
 inoremap jk <ESC>
 vnoremap jk <ESC> 
 
-" map shortcut for save
-nnoremap <leader>s :w<CR>
-" windows path to linux path
-nnoremap <leader>/ :s/\\/\//g<CR>
-
 " window splits
 " map Ctrl+<movement> to Ctrl+w,<movement>
 map <c-j> <c-w>j
@@ -96,29 +91,31 @@ nnoremap - <C-W>-
 nnoremap ( <C-W><
 nnoremap ) <C-W>>
 
-" move cursor in insert mode
-"inoremap <S-h> <C-o>h
-"inoremap <S-j> <C-o>j
-"inoremap <S-k> <C-o>k
-"inoremap <S-l> <C-o>l
-"inoremap <S-w> <C-o>w
-"inoremap <S-b> <C-o>b
-"inoremap <S-e> <C-o>e
-
 " copy, cut and past with system clipboard
 vnoremap <c-y> "+y
 vnoremap <c-d> "+d
 vnoremap <c-p> "+p
 
+" === leader key maps ===
+" CtrlPBuffer 
+nnoremap <leader>b :CtrlPBuffer<CR>
+" switch aternative buffer
+nnoremap <leader># :b#<CR>
+" map shortcut for save
+nnoremap <leader>s :w<CR>
+" windows path to linux path
+nnoremap <leader>/ :s/\\/\//g<CR>
 
-" --- leader key maps ---
-" load module header
-nnoremap <leader>h :read /media/UbuntuUsed/Python/LinuxWorkspace/SMAO/general/tuwien_hdr.txt<CR>1Gdd32GccCreated On <C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR><Esc>G
+
 " add break point
-nnoremap ,b oimport pdb; pdb.set_trace()<ESC>
+nnoremap ,g oimport pdb; pdb.set_trace()<ESC>
 
 " delete and paste, without putting deleted text in default register
 vnoremap <leader>p "_dP
+
+" remove tailing space in current line
+nnoremap <leader><space> :%s/\s\+$//g<CR><ESC>
+
 
 " python main part
 :autocmd FileType python nnoremap <leader>m oif __name__ == "__main__":<CR>
@@ -131,20 +128,11 @@ vnoremap <leader>p "_dP
 :autocmd FileType python vnoremap <leader>cc :s/^#//g<CR>
 :autocmd FileType python nnoremap <leader>cc :s/^#//g<CR>
 
-" remove tailing space in current line
-nnoremap <leader><space> :s/\s\+$//g<CR><ESC>
 
 
 " ================================================== 
 " EXTENSION 
 " ==================================================
-
-" --gvim colorscheme--
-if has('gui_running')
-    colorscheme harlequin
-    set lines=50 columns=120
-    let $PYTHONPATH.="/meida/UbuntuUsed/Python/LinuxWorkspace/SGRT:/meida/UbuntuUsed/Python/LinuxWorkspace/SMAO"
-endif
 
 " --python virutalenv--
 " Add the virtualenv's site-packages to vim path
@@ -226,4 +214,3 @@ let g:ctrlp_working_path_mode = 0
 " ================================================== 
 " FUNCTIONS
 " ==================================================
-
